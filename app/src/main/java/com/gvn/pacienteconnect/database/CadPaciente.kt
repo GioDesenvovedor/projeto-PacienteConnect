@@ -22,9 +22,9 @@ class CadPaciente {
     @ColumnInfo(name = "problema")
     var problema : String = ""
 
-    @ColumnInfo(name = "remedioComprimdo")
+   /* @ColumnInfo(name = "remedioComprimdo")
     var remedioComprimdo : String = ""
 
     @ColumnInfo(name = "remedioMl")
-    var remedioMl : String = ""
+    var remedioMl : String = ""*/
 }

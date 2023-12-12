@@ -13,7 +13,10 @@
         android:theme="@style/Theme.PacienteConnect"
         tools:targetApi="31">
         <activity
-            android:name=".view.LisaPacientes"
+            android:name=".CadastroRemedios"
+            android:exported="false" />
+        <activity
+            android:name=".view.ListaPacientes"
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"

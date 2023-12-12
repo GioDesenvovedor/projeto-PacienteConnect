@@ -4,10 +4,8 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.gvn.pacienteconnect.database.CadPaciente
 import com.gvn.pacienteconnect.databinding.ActivityCadastroBinding
 import com.gvn.pacienteconnect.viewModel.CadPacienteViewModel
@@ -15,7 +13,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 
 class CadastroActivity : AppCompatActivity() {
 
@@ -67,12 +64,16 @@ class CadastroActivity : AppCompatActivity() {
                 viewModel.insert(model)
             }
             withContext(Dispatchers.Main) {
-                startActivity(Intent(applicationContext, LisaPacientes::class.java))
+                startActivity(Intent(applicationContext, ListaPacientes::class.java))
+                finish()
             }
 
 
         }else{
-            Toast.makeText(this, "ERRO: $nome", Toast.LENGTH_LONG).show()
+            withContext(Dispatchers.Main){
+                Toast.makeText(applicationContext, "Os campos não pode ser vazios ", Toast.LENGTH_LONG).show()
+            }
+
         }
 
     }

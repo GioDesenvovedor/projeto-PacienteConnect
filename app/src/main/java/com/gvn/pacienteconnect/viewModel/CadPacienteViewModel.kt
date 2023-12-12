@@ -7,6 +7,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.gvn.pacienteconnect.database.CadPaciente
 import com.gvn.pacienteconnect.repository.PacienteRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CadPacienteViewModel(application: Application): AndroidViewModel(application) {
 
@@ -18,9 +22,10 @@ class CadPacienteViewModel(application: Application): AndroidViewModel(applicati
     private val savePaciente = MutableLiveData<String>()
     val _savePaciente : LiveData<String> = savePaciente
 
-    suspend fun insert(cadPaciente: CadPaciente): Boolean{
-        return  try {
-            repository.insert(cadPaciente)
+    suspend fun insert(cadPaciente: CadPaciente): Boolean = withContext(Dispatchers.IO){
+          try {
+                repository.insert(cadPaciente)
+
             true
         }catch (e:Exception){
             Log.i("TAG", "Erro ao inserir os dados: ${hashCode()}")
