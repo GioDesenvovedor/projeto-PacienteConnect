@@ -18,34 +18,36 @@ class TdsPacientesViewModel(application: Application) :
     private val repository = PacienteRepository(application)
 
     private val listPaciente = MutableLiveData<List<CadPaciente>>()
-    val _listPaci :LiveData<List<CadPaciente>> = listPaciente
+    val _listPaci: LiveData<List<CadPaciente>> = listPaciente
 
     private val paciente = MutableLiveData<CadPaciente>()
-    val _paci :LiveData<CadPaciente> = paciente
+    val _paci: LiveData<CadPaciente> = paciente
 
     private val nomePaci = MutableLiveData<String>()
-    val _snomePaci : LiveData<String> = nomePaci
+    val _snomePaci: LiveData<String> = nomePaci
 
 
-    suspend fun getAll(){
+    suspend fun getAll() {
         viewModelScope.launch {
             try {
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     listPaciente.value = repository.getAll()
                     Log.d("INFO", "onCreateViewHolder adapter CRIADO")
                 }
-        }catch (e:Exception){
+            } catch (e: Exception) {
                 Log.i("TAG", "ERRO AO SALVAR: ${e.message}, ")
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
 
                 }
 
 
-
-        }
+            }
 
         }
     }
 
+    fun delete(id: Int){
+        repository.delete(id)
+    }
 
 }

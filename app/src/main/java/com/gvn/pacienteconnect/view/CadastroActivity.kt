@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.gvn.pacienteconnect.database.CadPaciente
 import com.gvn.pacienteconnect.databinding.ActivityCadastroBinding
+
 import com.gvn.pacienteconnect.viewModel.CadPacienteViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -48,9 +49,9 @@ class CadastroActivity : AppCompatActivity() {
 
     private suspend fun insertCad() {
 
-        val nome = binding.editNome.text.toString()
-        var sobrenome = binding.editSobreNome.text.toString()
-        var problemaSaude = binding.editProblema.text.toString()
+        val nome = binding.editNome.text.toString().trim()
+        var sobrenome = binding.editSobreNome.text.toString().trim()
+        var problemaSaude = binding.editProblema.text.toString().trim()
 
         if (nome.isNotEmpty() && problemaSaude.isNotEmpty()) {
 

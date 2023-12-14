@@ -38,6 +38,11 @@ class PacienteRepository(context: Context) {
 
     }
 
+     fun delete(id: Int) {
+         Log.d("INFO", "Repositori chamado para posição: $id remove")
+         pacienteDataBase.delete(id)
+    }
+
     suspend fun get(id: Int): CadPaciente {
         return pacienteDataBase.get(id)
     }

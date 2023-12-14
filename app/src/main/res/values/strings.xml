@@ -2,4 +2,11 @@
     <string name="app_name">PacienteConnect</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="large_text">
+        "Bem-Vindo ao PacienteConnect!\n\n"
+
+        "Com ele você podera cadastrar o paciente, inserindo informações vitais e estabelecendo
+        a base para um cuidado personalizado e eficaz\n"
+
+    </string>
 </resources>

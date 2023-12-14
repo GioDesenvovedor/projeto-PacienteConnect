@@ -16,6 +16,9 @@ interface PacienteDao {
     suspend fun update(cadPaciente: CadPaciente)
 
 
+    @Query("DELETE FROM cadpaciente WHERE id = :id ")
+    fun delete(id: Int): Int
+
     @Query("DELETE FROM cadpaciente ")
      fun deleteTodos(): Int
 
