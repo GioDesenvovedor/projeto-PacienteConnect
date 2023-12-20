@@ -65,7 +65,7 @@ class CadastroActivity : AppCompatActivity() {
                 viewModel.insert(model)
             }
             withContext(Dispatchers.Main) {
-                startActivity(Intent(applicationContext, ListaPacientes::class.java))
+                startActivity(Intent(applicationContext, CadastroRemedios::class.java))
                 finish()
             }
 

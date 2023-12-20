@@ -9,4 +9,25 @@
         a base para um cuidado personalizado e eficaz\n"
 
     </string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string-array name="Comp_ml_array">
+        <item>Selecione</item>
+        <item>Comprimido</item>
+        <item>ML</item>
+    </string-array>
+
+    <string-array name="quantidade_array">
+        <item>Selecione</item>
+        <item>1 comprimido</item>
+        <item>2 comprimido</item>
+        <item>3 comprimido</item>
+        <item>4 comprimido</item>
+        <item>5 comprimido</item>
+        <item>6 comprimido</item>
+        <item>Nenhuma das alternativas</item>
+    </string-array>
 </resources>
