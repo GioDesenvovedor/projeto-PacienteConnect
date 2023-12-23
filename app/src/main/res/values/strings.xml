@@ -2,17 +2,24 @@
     <string name="app_name">PacienteConnect</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="large_text">
-        "Bem-Vindo ao PacienteConnect!\n\n"
 
-        "Com ele você podera cadastrar o paciente, inserindo informações vitais e estabelecendo
-        a base para um cuidado personalizado e eficaz\n"
 
+    <!-- TODO: Textos telas de apresentação  -->
+    <string name="text_bem_vindo">Bem Vindo ao PacienteConnect!</string>
+
+    <string name="text_apresentacao_one">Com ele você podera cadastrar o paciente,
+        inserindo informações vitais
+        e estabelecendo a base para um cuidado
+        personalizado e eficaz
     </string>
+
+
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="alarme_remedio">Hora de tomar o remédio</string>
 
     <string-array name="Comp_ml_array">
         <item>Selecione</item>
@@ -30,4 +37,13 @@
         <item>6 comprimido</item>
         <item>Nenhuma das alternativas</item>
     </string-array>
+    <string name="title_activity_apresentacao">ApresentacaoActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

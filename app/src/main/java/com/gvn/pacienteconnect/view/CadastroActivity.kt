@@ -33,7 +33,6 @@ class CadastroActivity : AppCompatActivity() {
         //esconder actionBar
         supportActionBar?.hide()
         window.statusBarColor = Color.parseColor("#FE3942")
-
         btnSave()
 
     }

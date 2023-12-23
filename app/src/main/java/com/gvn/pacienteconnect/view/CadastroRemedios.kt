@@ -1,9 +1,11 @@
 package com.gvn.pacienteconnect.view
 
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -11,9 +13,13 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import com.gvn.pacienteconnect.R
 import com.gvn.pacienteconnect.databinding.ActivityCadastroRemediosBinding
+import java.text.Format
+import java.time.format.FormatStyle
+import java.util.Calendar
 
 class CadastroRemedios : AppCompatActivity() {
     private lateinit var binding: ActivityCadastroRemediosBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityCadastroRemediosBinding.inflate(layoutInflater)
@@ -31,16 +37,60 @@ class CadastroRemedios : AppCompatActivity() {
 
         /*  tarefas a fazer
 
-        * coloca um botão adicionar mais remedios
+
         * criar classe para salvar remedios no banco **/
 
 
         radChecCompr()
         radChecMl()
         btnsaveRene()
+        timerPi()
+
+    }
+    private fun timerPi() {
+       binding.editTextTime.setOnClickListener {
+           alertaTimer()
+       }
+    }
 
 
+    //Evento hora do remédio, disparar alarme
+    private fun alertaTimer() {
+        val alarme = binding.editTextTime
 
+        val calendar = Calendar.getInstance() // Obtém uma instância do objeto Calendar configurada com a data e a hora atuais
+        val currentHor = calendar.get(Calendar.HOUR_OF_DAY) // Obtém a hora atual no formato de 24 horas
+        val currentMinu = calendar.get(Calendar.MINUTE) // Obtém a hora atual no formato de 24 horas
+        
+        val timePickerDialog = TimePickerDialog(this,TimePickerDialog.OnTimeSetListener { timePicker, horaDia, minutos ->
+
+            // Ouvinte chamado quando o usuário define o tempo no seletor de tempo
+            val selectedTime = "$horaDia:$minutos"
+            alarme.text = selectedTime // Atualiza o TextClock com o tempo selecionado
+
+            // Aqui você pode implementar a lógica para definir um alarme ou lembrete com o tempo selecionado
+
+        }, currentHor,// Hora inicial para o seletor de tempo
+            currentMinu,// Minuto inicial para o seletor de tempo
+            true)// Indica se o seletor de tempo deve usar o formato de 24 horas (true) ou AM/PM (false)
+
+        timePickerDialog.show()// Exibe o seletor de tempo
+
+        val remedio = binding.editRemedio.toString().trim()
+        binding.switchAlarm.setOnCheckedChangeListener { button, sw ->
+            if (sw){
+
+                val  intent = Intent(AlarmClock.ACTION_SET_ALARM)
+                intent.putExtra(AlarmClock.EXTRA_HOUR, alarme.text.toString().split(":")[0].toInt())
+                intent.putExtra(AlarmClock.EXTRA_MINUTES, alarme.text.toString().split(":")[1].toInt())
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, getString(R.string.alarme_remedio))
+                startActivity(intent)
+
+                if (intent.resolveActivity(packageManager)!= null){
+                    startActivity(intent)
+                }
+            }
+        }
     }
 
     // Ao selecionar o radio botton miligrama dispara o evento loadSpinner2

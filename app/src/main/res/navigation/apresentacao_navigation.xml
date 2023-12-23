@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/apresentacao_navigation"
+    app:startDestination="@id/apresentacaoOneFragment">
+
+    <fragment
+        android:id="@+id/apresentacaoOneFragment"
+        android:name="com.gvn.pacienteconnect.ApresentacaoOneFragment"
+        android:label="fragment_apresentacao_one"
+        tools:layout="@layout/fragment_apresentacao_one"/>
+    <fragment
+        android:id="@+id/apresentacaoTwoFragment"
+        android:name="com.gvn.pacienteconnect.ApresentacaoTwoFragment"
+        android:label="fragment_apresentacao_two"
+        tools:layout="@layout/fragment_apresentacao_two"/>
+    <fragment
+        android:id="@+id/apresentacaoTreeFragment"
+        android:name="com.gvn.pacienteconnect.ApresentacaoTreeFragment"
+        android:label="fragment_apresentacao_tree"
+        tools:layout="@layout/fragment_apresentacao_tree" />
+</navigation>

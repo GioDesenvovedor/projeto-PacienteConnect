@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.gvn.pacienteconnect.ApresentacaoActivity
 import com.gvn.pacienteconnect.R
 
 class MainActivity : AppCompatActivity() {
@@ -18,9 +19,15 @@ class MainActivity : AppCompatActivity() {
 
         // Splash
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, CadastroActivity::class.java)
+            val intent = Intent(this, ApresentacaoActivity::class.java)
             startActivity(intent)
             finish()
         },3000)// tempo do splash
     }
+
+    private fun abrirFragment() {
+
+    }
+
+
 }
