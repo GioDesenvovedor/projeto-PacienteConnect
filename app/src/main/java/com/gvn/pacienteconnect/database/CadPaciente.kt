@@ -19,12 +19,26 @@ class CadPaciente {
     @ColumnInfo(name = "sobrenome")
     var sobrenome : String = ""
 
+    @ColumnInfo(name = "idade")
+    var idade : String = ""
+
+    @ColumnInfo(name = "sexo")
+    var sexo : Boolean = true
+
     @ColumnInfo(name = "problema")
     var problema : String = ""
 
-   /* @ColumnInfo(name = "remedioComprimdo")
-    var remedioComprimdo : String = ""
+   @ColumnInfo(name = "nomeRemedio")
+    var nomeRemedio : String = ""
 
-    @ColumnInfo(name = "remedioMl")
-    var remedioMl : String = ""*/
+    @ColumnInfo(name = "dosagem")
+    var dosagem : String = ""
+
+    @ColumnInfo(name = "qtDia")
+    var quantidadeAoDia : String = ""
+
+    @ColumnInfo(name = "horaMedicacao")
+    var horaMedicacao : String = ""
+
+
 }

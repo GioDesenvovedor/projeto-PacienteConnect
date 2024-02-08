@@ -4,22 +4,17 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.gvn.pacienteconnect.databinding.ActivityApresentacaoBinding
+import com.gvn.pacienteconnect.databinding.ActivityApresentacaoTwoBinding
 import com.gvn.pacienteconnect.view.CadastroActivity
 
+class ApresentacaoTwoActivity : AppCompatActivity() {
 
-class ApresentacaoActivity : AppCompatActivity() {
-
-    private  lateinit var binding: ActivityApresentacaoBinding
+    private lateinit var binding: ActivityApresentacaoTwoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        binding = ActivityApresentacaoBinding.inflate(layoutInflater)
+        binding = ActivityApresentacaoTwoBinding.inflate(layoutInflater)
+
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
@@ -30,12 +25,11 @@ class ApresentacaoActivity : AppCompatActivity() {
         proximatela()
         pulartela()
 
-
     }
 
     private fun proximatela() {
         binding.button.setOnClickListener {
-            startActivity(Intent(this, ApresentacaoTwoActivity::class.java))
+            startActivity(Intent(this, ApresentacaoThreeActivity::class.java))
             finish()
         }
     }

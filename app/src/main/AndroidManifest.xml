@@ -14,14 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PacienteConnect"
         tools:targetApi="31">
-
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ApresentacaoThreeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ApresentacaoTwoActivity"
+            android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home" />
-        <activity
-            android:name=".ApresentacaoActivity"
-            android:exported="false" />
         <activity
             android:name=".view.CadastroRemedios"
             android:exported="false" />
@@ -29,10 +34,13 @@
             android:name=".view.ListaPacientes"
             android:exported="false" />
         <activity
+            android:name=".RelatorioPacienteActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.CadastroActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".ApresentacaoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

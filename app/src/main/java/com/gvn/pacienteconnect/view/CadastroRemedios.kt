@@ -10,15 +10,27 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import com.gvn.pacienteconnect.R
+import com.gvn.pacienteconnect.database.CadPaciente
 import com.gvn.pacienteconnect.databinding.ActivityCadastroRemediosBinding
+import com.gvn.pacienteconnect.viewModel.CadPacienteViewModel
+import com.gvn.pacienteconnect.viewModel.CadRemedioViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.Format
 import java.time.format.FormatStyle
 import java.util.Calendar
 
 class CadastroRemedios : AppCompatActivity() {
     private lateinit var binding: ActivityCadastroRemediosBinding
+    private val viewModel: CadPacienteViewModel by viewModels()
+    private var guestId = 0
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,12 +53,67 @@ class CadastroRemedios : AppCompatActivity() {
         * criar classe para salvar remedios no banco **/
 
 
+        adRemedios()
         radChecCompr()
         radChecMl()
         btnsaveRene()
         timerPi()
 
     }
+
+    private fun adRemedios() {
+        binding.btnAdRemedio.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                saveRemdios()
+            }
+
+        }
+    }
+
+    private suspend fun saveRemdios() {
+       var nRemedio = binding.editRemedio.text.toString().trim()
+       var dosagem = binding.spinnerDose.toString()
+       var quantidadeAoDia = binding.qtVezezAodia.toString()
+       var horaMedicacao = binding.editTextTime.text.toString().trim()
+
+        if (nRemedio.isNotEmpty() && quantidadeAoDia.isNotEmpty()){
+
+            withContext(Dispatchers.Main){
+                val model = CadPaciente().apply {
+
+                    this.nomeRemedio = nRemedio
+                    this.quantidadeAoDia = quantidadeAoDia
+                    this.horaMedicacao = horaMedicacao
+                    this.dosagem = dosagem
+                }
+                viewModel.insert(model)
+                Toast.makeText(applicationContext, "Remédio Salvo com sucesso, Adicione ouros remedios ou clique no botão salvar para sair desta tela",
+                    Toast.LENGTH_LONG).show()
+               binding.editRemedio.setText("")
+                recreate()
+                //clearPage()
+
+            }
+        }else{
+            Toast.makeText(applicationContext,"Preencha os campos para serem adicionados", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun clearPage() {
+        binding.editRemedio.setText("")
+        val itens = listOf(
+            "Quantos comprimidos", "1 comprimido", "2 comprimido", "3 comprimido",
+            "4 comprimido", "5 comprimido", "6 comprimido"
+        )
+
+        // Cria um adaptador para o Spinner
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, itens)
+
+        // Associa o adaptador ao Spinner
+        val quant = binding.spinnerComp
+        quant.adapter = adapter
+    }
+
     private fun timerPi() {
        binding.editTextTime.setOnClickListener {
            alertaTimer()

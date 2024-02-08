@@ -51,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:inputType="textPersonName"
+                android:padding="5dp"
                 android:hint="Nome" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,8 +71,29 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:inputType="textPersonName"
+            android:padding="5dp"
             android:hint="Sobrenome" />
     </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputIdade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputSobreNome">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editIdade"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="numberDecimal"
+                android:hint="Idade"
+                android:padding="5dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputProblema"
@@ -80,31 +102,75 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
-            android:inputType="text"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputSobreNome">
+            app:layout_constraintTop_toBottomOf="@id/inputIdade">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editProblema"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="DIAGNÓSTICO" />
+                android:padding="5dp"
+                android:inputType="textPersonName"
+                android:hint="Diagnóstico" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/texTitleTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="10dp"
+            android:text="Gênero: "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputProblema">
+
+        </TextView>
+
+        <RadioGroup
+            android:id="@+id/radGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/texTitleTipo">
+
+            <RadioButton
+                android:id="@+id/radMasc"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Masculino" />
+
+            <RadioButton
+                android:id="@+id/radFemi"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="50dp"
+                android:text="Feminino"
+                app:layout_constraintBottom_toBottomOf="@+id/checkBox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/checkBox" />
+
+
+        </RadioGroup>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSalvar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="60dp"
-            android:layout_marginEnd="50dp"
-            android:background="@color/background"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/btn_perso_red"
             android:textColor="@color/white"
             android:text="Salvar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputProblema" />
+            app:layout_constraintTop_toBottomOf="@id/radGroup" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

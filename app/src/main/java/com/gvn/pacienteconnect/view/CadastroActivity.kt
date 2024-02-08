@@ -33,9 +33,33 @@ class CadastroActivity : AppCompatActivity() {
         //esconder actionBar
         supportActionBar?.hide()
         window.statusBarColor = Color.parseColor("#FE3942")
+
+        binding.radFemi.isChecked
+
+        //radChecSexo()
         btnSave()
 
     }
+
+
+    /*  Ao selecionar o radio botton miligrama dispara o evento loadSpinner2
+    private fun radChecSexo() {
+        binding.radMasc.setOnCheckedChangeListener { compoundButton, masc ->
+            if (masc) {
+                CadPaciente().sexo = true
+            }else{
+               radFem()
+            }
+        }
+    }
+
+    private fun radFem(){
+        binding.radFemi.setOnCheckedChangeListener { compoundButton, fem ->
+            if (fem) {
+                CadPaciente().sexo = false
+            }
+        }
+    }*/
 
     private fun btnSave() {
         binding.btnSalvar.setOnClickListener {
@@ -49,8 +73,11 @@ class CadastroActivity : AppCompatActivity() {
     private suspend fun insertCad() {
 
         val nome = binding.editNome.text.toString().trim()
-        var sobrenome = binding.editSobreNome.text.toString().trim()
-        var problemaSaude = binding.editProblema.text.toString().trim()
+        val sobrenome = binding.editSobreNome.text.toString().trim()
+        val problemaSaude = binding.editProblema.text.toString().trim()
+        val idade = binding.editIdade.text.toString().trim()
+        //val feminino = binding.radFemi.text.toString()
+
 
         if (nome.isNotEmpty() && problemaSaude.isNotEmpty()) {
 
@@ -60,10 +87,15 @@ class CadastroActivity : AppCompatActivity() {
                     this.nome = nome
                     this.sobrenome = sobrenome
                     this.problema = problemaSaude
+                    this.idade = idade
+                   // this.feminino = feminino
+                   // this.masculino = masculino
                 }
                 viewModel.insert(model)
+               // viewModel.setGuestId(model.id)
             }
             withContext(Dispatchers.Main) {
+
                 startActivity(Intent(applicationContext, CadastroRemedios::class.java))
                 finish()
             }

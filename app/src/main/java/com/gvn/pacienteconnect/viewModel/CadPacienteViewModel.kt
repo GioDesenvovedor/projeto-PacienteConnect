@@ -16,11 +16,23 @@ class CadPacienteViewModel(application: Application): AndroidViewModel(applicati
 
     private val repository = PacienteRepository(application)
 
+    //private var guestId: Int = 0
+
+   //// fun setGuestId(id: Int) {
+    //    guestId = id
+   // }
+
+// fun getGuestId(): Int = guestId
+
+    // ... Resto do código
+
     private val cadPaciente = MutableLiveData<CadPaciente>()
     val _cadP: LiveData<CadPaciente> = cadPaciente
 
     private val savePaciente = MutableLiveData<String>()
     val _savePaciente : LiveData<String> = savePaciente
+
+
 
     suspend fun insert(cadPaciente: CadPaciente): Boolean = withContext(Dispatchers.IO){
           try {

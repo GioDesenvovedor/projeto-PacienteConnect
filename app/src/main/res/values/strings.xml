@@ -12,6 +12,22 @@
         e estabelecendo a base para um cuidado
         personalizado e eficaz
     </string>
+    <!-- TODO: Textos telas de apresentação 2 -->
+    <string name="text_bem_vindo2">Medicamentos e Lembretes Personalizados</string>
+
+    <string name="text_apresentacao_two">Navegue para descobrir o poder do gerenciamento de medicamentos com
+        o Paciente Connect. Cadastre seus remédios, defina horários específicos de dosagem
+        e experimente a liberdade de não se preocupar com esquecimentos
+    </string>
+
+    <!-- TODO: Textos telas de apresentação 3 -->
+    <string name="text_bem_vindo3">Relatórios Detalhados e Compartilhamento</string>
+
+    <string name="text_apresentacao_three">Relatórios do PacienteConnect, onde a sua saúde ganha vida em dados
+        significativos. Gere relatórios abrangentes, com as informações essenciais sobre o
+        paciente. Compartilhe seus progressos de saúde de maneira rápida e fácil com amigos,
+        familiares ou profissionais de saúde
+    </string>
 
 
     <string name="title_activity_home">HomeActivity</string>

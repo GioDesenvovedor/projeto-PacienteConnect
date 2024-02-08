@@ -42,11 +42,7 @@ class PacienteAdapter: RecyclerView.Adapter<PacienteViewHolder>() {
     override fun onBindViewHolder(holder: PacienteViewHolder, position: Int) {
         Log.d("INFO", "onBindViewHolder chamado para posição: $position")
 
-        /*val recyclerPaci = lisPaciente[position]
-        holder.binding.cardPaciente
-        holder.binding.textN.text = recyclerPaci.nome
-        holder.binding.textSobN.text = recyclerPaci.sobrenome
-        holder.binding.textD.text = recyclerPaci.problema*/
+
 
          holder.bindViewHolder(lisPaciente[position])
 

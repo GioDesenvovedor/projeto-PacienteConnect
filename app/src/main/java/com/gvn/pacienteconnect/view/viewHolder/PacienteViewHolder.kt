@@ -1,6 +1,7 @@
 package com.gvn.pacienteconnect.view.viewHolder
 
 import android.app.AlertDialog
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.gvn.pacienteconnect.database.CadPaciente
 import com.gvn.pacienteconnect.databinding.ItemPacientesBinding
@@ -18,6 +19,12 @@ class PacienteViewHolder(
         itemVi.textN.text = item.nome
         itemVi.textSobN.text = item.sobrenome
         itemVi.textD.text = item.problema
+        itemVi.textIdade.text = item.idade
+
+
+
+
+
 
 
         //evento de click no card da lista
